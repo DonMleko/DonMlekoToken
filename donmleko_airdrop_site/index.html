@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Don Mleko Token (DMT)</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.7.5/dist/web3.min.js"></script>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #f1f1f1;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1c1c1c;
+      padding: 2rem;
+      text-align: center;
+    }
+    header img {
+      height: 80px;
+      margin-bottom: 1rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .button {
+      background-color: #fcd535;
+      color: #000;
+      padding: 12px 24px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      margin: 10px;
+    }
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      color: #fcd535;
+      border-bottom: 1px solid #444;
+      padding-bottom: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #1c1c1c;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="Don Mleko Logo" />
+  <h1>Don Mleko Token (DMT)</h1>
+  <p>The gangster crypto token fighting for power in the crypto mafia world.</p>
+  <a href="https://pancakeswap.finance/swap?outputCurrency=0x1FAc48db5079567D8769c9f1c16b228DB435C018" class="button" target="_blank">Buy DMT on PancakeSwap</a>
+  <button class="button" onclick="claimAirdrop()">Claim 100 DMT</button>
+</header>
+
+<section>
+  <h2>About DMT</h2>
+  <p>Don Mleko Token (DMT) is the native currency of the underground crypto mafia world. Use it to dominate the streets, upgrade your influence, and survive the brutal crypto wars. Built on BNB Smart Chain.</p>
+</section>
+
+<section>
+  <h2>Tokenomics</h2>
+  <ul>
+    <li>Total Supply: 100,000,000 DMT</li>
+    <li>1,000,000 DMT Airdrop Pool</li>
+    <li>70% Circulating Supply</li>
+    <li>15% Marketing</li>
+    <li>10% Developers</li>
+    <li>5% Liquidity Reserve</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Roadmap</h2>
+  <ul>
+    <li>Q2 2025 – Token Launch & PancakeSwap Listing ✅</li>
+    <li>Q3 2025 – Game Launch & NFT Mafia Assets</li>
+    <li>Q4 2025 – Airdrops, Staking & DonMleko Shop</li>
+  </ul>
+</section>
+
+<footer>
+  &copy; 2025 DonMlekoToken. All rights reserved.
+</footer>
+
+<script>
+  let claimed = false;
+
+  async function claimAirdrop() {
+    if (claimed) {
+      alert("You have already claimed your 100 DMT.");
+      return;
+    }
+
+    if (typeof window.ethereum !== 'undefined') {
+      const web3 = new Web3(window.ethereum);
+      try {
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const user = accounts[0];
+        const tokenAddress = "0x1FAc48db5079567D8769c9f1c16b228DB435C018";
+        const tokenABI = [{ "constant": false, "inputs": [ { "name": "recipient", "type": "address" }, { "name": "amount", "type": "uint256" } ], "name": "transfer", "outputs": [ { "name": "", "type": "bool" } ], "type": "function" }];
+        const token = new web3.eth.Contract(tokenABI, tokenAddress);
+        await token.methods.transfer(user, web3.utils.toWei("100", "ether")).send({ from: user });
+        claimed = true;
+        alert("You have successfully claimed 100 DMT!");
+      } catch (err) {
+        console.error(err);
+        alert("Transaction failed or cancelled.");
+      }
+    } else {
+      alert("Please install MetaMask.");
+    }
+  }
+</script>
+
+</body>
+</html>
