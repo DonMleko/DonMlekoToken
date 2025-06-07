@@ -1,13 +1,11 @@
 {
-    "name": "DonMleko Token",
+    "name": "Don Mleko Token",
     "symbol": "DMT",
+    "type": "BEP20",
     "decimals": 18,
-    "description": "DonMleko Token - The gangster crypto token fighting for power in the crypto mafia world.",
-    "website": "https://donmleko.io",
-    "social": {
-        "github": "https://github.com/DonMleko",
-        "telegram": "https://t.me/donmlekotoken",
-        "instagram": "https://www.instagram.com/donmlekotoken",
-        "twitter": "https://twitter.com/Iluminejtor"
-    }
+    "description": "Don Mleko Token (DMT) is the currency of the mafia metaverse \u2014 a gangster crypto world.",
+    "website": "https://donmleko.com",
+    "explorer": "https://bscscan.com/token/0x1FAc48db5079567D8769c9f1c16b228DB435C018",
+    "status": "active",
+    "id": "0x1FAc48db5079567D8769c9f1c16b228DB435C018"
 }
